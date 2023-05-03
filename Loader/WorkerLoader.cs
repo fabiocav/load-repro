@@ -10,7 +10,7 @@ namespace Loader
 {
     internal class WorkerLoader
     {
-        public static void LoadWorker(string workerAssemblyPath)
+        public static int LoadWorker(string workerAssemblyPath)
         {            
             // Initialize the assembly resolver to ensure we can load worker dependencies
             WorkerAssemblyResolver.Initialize(AssemblyLoadContext.Default, workerAssemblyPath);
@@ -30,7 +30,7 @@ namespace Loader
                 exitCode = (int)result;
             }
 
-            Environment.Exit(exitCode);
+            return exitCode;
         }
     }
 }
